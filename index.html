@@ -1,8 +1,216 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lucky Cat - Build Ledger</title><meta name="description" content="The current Lucky Cat build state, evidence and next steps. Gemini works now; the local stack is still in development."><link rel="icon" href="assets/mark-v4-cream.png"><style>
-:root{--black:#110c07;--gold:#d5aa29;--cream:#f1dfad;--red:#b82a1e;--dim:#a99a72;--rule:#5e4c25}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--black);color:var(--cream);font:16px/1.55 Arial,sans-serif;background-image:radial-gradient(circle at 80% 8%,rgba(213,170,41,.09),transparent 24%),repeating-linear-gradient(91deg,rgba(255,255,255,.012) 0 1px,transparent 1px 6px)}a{color:inherit}img,video{max-width:100%;display:block}header{height:64px;padding:0 2.2vw;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(17,12,7,.94);backdrop-filter:blur(10px);z-index:10}.brand{display:flex;gap:12px;align-items:center;text-decoration:none;font-size:11px;letter-spacing:.32em;text-transform:uppercase}.brand img{width:30px;height:30px;object-fit:contain}.stamp{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}main{overflow:hidden}.opening{min-height:calc(100svh - 64px);display:grid;grid-template-columns:1.05fr .95fr;position:relative}.opening-copy{padding:8vw 3vw 6vw 8vw;align-self:center}.kicker{color:var(--gold);font-size:11px;letter-spacing:.2em;text-transform:uppercase}.opening h1{font-family:Baskerville,"Iowan Old Style",Georgia,serif;font-size:clamp(70px,9.5vw,150px);font-weight:400;letter-spacing:-.07em;line-height:.67;margin:1.5rem 0 3rem}.opening h1 i{display:block;color:#df3322;font-weight:400;margin-left:8vw}.opening-copy>p:last-child{color:var(--dim);max-width:37rem;font-size:18px}.opening-mark{align-self:stretch;background:#050403;display:grid;place-items:center;position:relative}.opening-mark img{width:min(52%,430px);filter:drop-shadow(0 30px 50px #000)}.opening-mark:after{content:"福";position:absolute;font:clamp(180px,28vw,480px)/1 serif;color:rgba(213,170,41,.055);right:-.15em;bottom:-.23em}.truth{background:var(--gold);color:#1a1007;padding:clamp(5rem,10vw,10rem) 7vw;transform:rotate(-.25deg) scale(1.01)}.truth h2,.ledger h2,.evidence h2{font-family:Baskerville,"Iowan Old Style",Georgia,serif;font-weight:400;font-size:clamp(52px,8vw,112px);letter-spacing:-.055em;line-height:.86;margin:0}.truth-line{display:grid;grid-template-columns:10rem 1fr 26rem;gap:4vw;align-items:start;border-top:2px solid #211506;padding:2.8rem 0}.truth-line:first-of-type{margin-top:4rem}.truth-line .label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}.truth-line strong{font-family:Baskerville,Georgia,serif;font-size:clamp(30px,4vw,58px);line-height:1;font-weight:400}.truth-line strong i{color:var(--red);font-weight:400}.truth-line p{margin:0;color:#4b3213}.film{display:grid;grid-template-columns:1fr 28vw;align-items:end;padding:10vw 5vw 8vw;gap:2vw}.film video{width:100%;aspect-ratio:16/9;background:#000;object-fit:cover;transform:rotate(-1deg);box-shadow:18px 18px 0 rgba(213,170,41,.14)}.film-note{font-family:Baskerville,Georgia,serif;font-size:clamp(26px,3vw,44px);line-height:1.08;transform:translateY(2rem)}.film-note span{display:block;color:var(--gold);font:10px/1.4 Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1rem}.film-note small{display:block;color:var(--dim);font:14px/1.5 Arial,sans-serif;margin-top:1rem}.ledger{padding:8vw 7vw;border-top:1px solid var(--rule)}.ledger-list{margin-top:5rem}.row{display:grid;grid-template-columns:7rem 1fr 13rem;gap:3vw;border-top:1px solid var(--rule);padding:2rem 0;text-decoration:none;align-items:baseline}.row:hover .row-title{color:var(--gold)}.row-no{color:var(--gold);font-size:11px;letter-spacing:.15em}.row-title{font-family:Baskerville,Georgia,serif;font-size:clamp(24px,3vw,42px);line-height:1.05;transition:color .2s}.row-note{color:var(--dim);font-size:13px}.evidence{padding:8vw 7vw;background:#9f2118;color:#f7e6b9}.evidence .kicker{color:#ffd765}.evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:5rem;border-top:1px solid #e36a55}.evidence a{padding:2rem 1rem 2rem 0;border-bottom:1px solid #e36a55;text-decoration:none;min-height:10rem}.evidence a:nth-child(3n+2),.evidence a:nth-child(3n+3){padding-left:1.5rem;border-left:1px solid #e36a55}.evidence b{display:block;font-family:Baskerville,Georgia,serif;font-size:26px;font-weight:400}.evidence span{display:block;margin-top:.7rem;font-size:12px;color:#eab8a8}.review-path{padding:6vw 7vw;border-top:1px solid var(--rule)}.review-path h2{font-family:Baskerville,Georgia,serif;font-size:clamp(42px,6vw,80px);font-weight:400;line-height:.9;margin:0 0 3rem}.review-steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule)}.review-steps a{padding:1.5rem 1rem 1.5rem 0;border-bottom:1px solid var(--rule);text-decoration:none}.review-steps span{display:block;color:var(--gold);font-size:10px;letter-spacing:.16em}.review-steps b{display:block;font-family:Baskerville,Georgia,serif;font-size:22px;font-weight:400;margin-top:.7rem}.fine{padding:3rem 7vw;color:var(--dim);font-size:12px;display:flex;justify-content:space-between;gap:2rem}.fine a{color:var(--gold)}:focus-visible{outline:2px solid var(--gold);outline-offset:4px}@media(max-width:760px){.review-steps{grid-template-columns:1fr}.review-path{padding:5rem 1.3rem}header{padding:0 18px}.stamp{max-width:120px;text-align:right}.opening{grid-template-columns:1fr}.opening-copy{padding:5rem 1.3rem 4rem}.opening h1{font-size:25vw}.opening-mark{min-height:48svh;order:-1}.opening-mark img{width:43%}.truth{padding-left:1.3rem;padding-right:1.3rem}.truth-line{grid-template-columns:1fr;gap:1rem;padding:2rem 0}.film{grid-template-columns:1fr;padding:6rem 1.3rem}.film-note{transform:none}.ledger,.evidence{padding:6rem 1.3rem}.row{grid-template-columns:3rem 1fr}.row-note{grid-column:2}.evidence-grid{grid-template-columns:1fr}.evidence a,.evidence a:nth-child(n){border-left:0;padding:1.5rem 0;min-height:0}.fine{padding:2rem 1.3rem;display:block}.fine span{display:block;margin-top:.5rem}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}</style></head><body>
-<header><a class="brand" href="https://jacobegarcia.github.io/luckycat/"><img src="assets/mark-v4-cream.png" alt="">Lucky Cat</a><span class="stamp">Build ledger · Sep 2026</span></header><main>
-<section class="opening"><div class="opening-copy"><p class="kicker">No future tense disguised as fact.</p><h1>Show the<i>work.</i></h1><p>This is the current build state and the evidence behind it. The Raspberry Pi voice loop works through Gemini today, and the physical Pi has woken to its name. Local speech and brain are still in development.</p></div><div class="opening-mark"><img src="assets/mark-v4-cream.png" alt="Lucky Cat mark"></div></section>
-<section class="truth"><p class="kicker">The honest architecture</p><h2>Now, then next.</h2><div class="truth-line"><span class="label">Working now</span><strong>Mic <i>to</i> Pi 5 <i>to</i> Gemini <i>to</i> speaker.</strong><p>A complete voice turn on the bench. It needs an internet connection. The physical Pi has also woken to its name.</p></div><div class="truth-line"><span class="label">In development</span><strong>Local speech. Fine-tuned Qwen.</strong><p>The intended private path, plus the moving product shell. None of these are represented as finished.</p></div></section>
-<section class="film"><video src="assets/cat-wakes.mp4" controls muted playsinline preload="metadata" poster="assets/render-front.png"></video><p class="film-note"><span>Product film · 00:37</span>A picture of the intended product, not footage of finished hardware.<small>The cat film is concept visualization. The architecture statement above describes the real bench state.</small></p></section>
-<section class="review-path"><p class="kicker">Reviewer path</p><h2>Product to proof,<br>without a dead end.</h2><nav class="review-steps"><a href="https://jacobegarcia.github.io/luckycat/"><span>01</span><b>Product</b></a><a href="https://youtu.be/EtL4Ix5GXxw"><span>02</span><b>Founder video</b></a><a href="https://jacobegarcia.github.io/fly-mind/"><span>03</span><b>Fly Mind</b></a><a href="https://jacobegarcia.github.io/luckycat/#wishlist"><span>04</span><b>Join the first run</b></a></nav></section><section class="ledger"><p class="kicker">A public trail</p><h2>Follow every mark.</h2><div class="ledger-list"><a class="row" href="https://github.com/JacobEGarcia/luckycat"><span class="row-no">01</span><span class="row-title">Product-site source</span><span class="row-note">Public code and revision history.</span></a><a class="row" href="https://github.com/JacobEGarcia/luckycat-proof"><span class="row-no">02</span><span class="row-title">This ledger's source</span><span class="row-note">Audit changes to this page.</span></a><a class="row" href="https://www.kaggle.com/jacobegarcia"><span class="row-no">03</span><span class="row-title">Local-model training profile</span><span class="row-note">Candidate model work, not the live brain.</span></a><a class="row" href="https://docs.google.com/presentation/d/1FmIhXr0IqTb0JTAQN8mMUtrLxD_FMTl0dsQkC3vm8VU/edit?usp=drivesdk&amp;authuser=jacobegarcia101%40gmail.com"><span class="row-no">04</span><span class="row-title">Blueprint deck</span><span class="row-note">Product and build plan.</span></a></div></section>
-<section class="evidence"><p class="kicker">More than one object</p><h2>The maker behind it.</h2><div class="evidence-grid"><a href="https://jacobegarcia.github.io/fly-mind/"><b>Fly Mind</b><span>Interactive technical work sample</span></a><a href="https://jacobegarcia.github.io/lucky-cat-tamagotchi/"><b>Tamagotchi</b><span>Character and interaction study</span></a><a href="https://jacobegarcia.github.io/lucky-runner/"><b>Lucky Runner</b><span>Brand-world game</span></a><a href="https://www.instagram.com/luckycatrobot/"><b>Instagram</b><span>Posters and visual build log</span></a><a href="https://luckycatrobot.substack.com"><b>Substack</b><span>Long-form build notes</span></a><a href="https://x.com/luckycatrobot"><b>X</b><span>Public progress</span></a></div></section></main><footer class="fine"><span>Lucky Cat · Chicago · September 2026</span><span><a href="https://jacobegarcia.github.io/luckycat/">Product site</a> · <a href="mailto:jacobegarcia101@gmail.com">Contact</a></span></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lucky Cat - Build Ledger</title>
+<meta name="description" content="The current Lucky Cat build state, evidence and next steps. Gemini works now; the local stack is still in development.">
+<link rel="icon" href="assets/mark-v4-cream.png">
+<style>
+:root{
+  --paper:#F5F1E8;
+  --ink:#16130E;
+  --ink-60:rgba(22,19,14,.6);
+  --ink-38:rgba(22,19,14,.38);
+  --accent:#C73A24;
+  --rule:#DED4BF;
+  --measure:62ch;
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:40px; --s6:64px; --s7:96px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:16px/1.6 ui-sans-serif,-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:"tnum" 1,"ss01" 1;
+}
+::selection{background:var(--accent);color:var(--paper)}
+a{color:inherit;text-decoration:none}
+img,video{max-width:100%;display:block}
+
+.wrap{max-width:960px;margin:0 auto;padding:0 var(--s4)}
+
+/* header */
+header.site{
+  border-bottom:1px solid var(--rule);
+}
+header.site .wrap{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding-top:var(--s3);padding-bottom:var(--s3);
+}
+.wordmark{
+  font-weight:700;letter-spacing:.14em;font-size:13px;text-transform:uppercase;
+}
+.wordmark span{color:var(--accent)}
+.ledger-tag{
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-38);
+}
+
+/* sections */
+section{padding:var(--s7) 0;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:none}
+.sec-head{display:flex;align-items:baseline;gap:var(--s3);margin-bottom:var(--s5)}
+.sec-no{font-size:13px;color:var(--ink-38);font-variant-numeric:tabular-nums}
+.kicker{
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-60);
+  margin:0 0 var(--s2);
+}
+h1,h2{font-weight:650;line-height:1.06;margin:0;letter-spacing:-.02em}
+h1{font-size:clamp(44px,8vw,88px)}
+h2{font-size:clamp(30px,5vw,52px)}
+.lede{font-size:19px;color:var(--ink-60);max-width:var(--measure);margin:var(--s4) 0 0}
+
+/* opening */
+.opening h1 em{font-style:normal;color:var(--accent)}
+.opening-facts{
+  margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--rule);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);
+  font-size:14px;color:var(--ink-60);
+}
+.opening-facts b{display:block;color:var(--ink);font-weight:600;margin-bottom:var(--s1);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+
+/* truth table */
+.truth-rows{border-top:1px solid var(--rule)}
+.truth-row{
+  display:grid;grid-template-columns:180px 1fr;gap:var(--s4);
+  padding:var(--s4) 0;border-bottom:1px solid var(--rule);
+}
+.truth-row .label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-38);padding-top:3px}
+.truth-row .label .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:var(--s2)}
+.truth-row .label.dev .dot{background:var(--ink-38)}
+.truth-row strong{display:block;font-weight:600;font-size:18px;margin-bottom:var(--s2)}
+.truth-row p{margin:0;color:var(--ink-60);max-width:var(--measure)}
+
+/* film */
+.film video{width:100%;border:1px solid var(--rule)}
+.film-note{
+  display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;
+  margin-top:var(--s3);font-size:13px;color:var(--ink-60);
+}
+.film-note small{max-width:46ch;color:var(--ink-38)}
+
+/* steps + rows (no cards - hairline lists) */
+.steps,.rows{border-top:1px solid var(--rule)}
+.steps a,.rows a{
+  display:grid;grid-template-columns:56px 1fr auto;gap:var(--s4);align-items:baseline;
+  padding:var(--s4) 0;border-bottom:1px solid var(--rule);
+  transition:background .15s ease;
+}
+.steps a:hover,.rows a:hover{background:rgba(22,19,14,.03)}
+.steps .n,.rows .n{font-size:13px;color:var(--ink-38);font-variant-numeric:tabular-nums}
+.steps b,.rows b{font-weight:600;font-size:17px}
+.rows .note{font-size:13px;color:var(--ink-38);text-align:right;max-width:34ch}
+.steps .go,.rows .go{font-size:13px;color:var(--ink-38)}
+.steps a:hover .go,.rows a:hover .go{color:var(--accent)}
+
+/* footer */
+footer{border-top:1px solid var(--rule)}
+footer .wrap{
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s3);
+  padding-top:var(--s4);padding-bottom:var(--s4);
+  font-size:13px;color:var(--ink-38);
+}
+footer a:hover{color:var(--accent)}
+
+@media (max-width:680px){
+  .truth-row{grid-template-columns:1fr;gap:var(--s2)}
+  .opening-facts{grid-template-columns:1fr}
+  .steps a,.rows a{grid-template-columns:40px 1fr;grid-auto-flow:row}
+  .rows .note{text-align:left;max-width:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="site"><div class="wrap">
+  <a class="wordmark" href="https://jacobegarcia.github.io/luckycat/">LUCKY&nbsp;CAT<span>.</span></a>
+  <span class="ledger-tag">Build ledger · Sep 2026</span>
+</div></header>
+
+<main class="wrap">
+
+  <section class="opening">
+    <p class="kicker">No future tense disguised as fact.</p>
+    <h1>Show the <em>work.</em></h1>
+    <p class="lede">This is the current build state and the evidence behind it. The Raspberry Pi voice loop works through Gemini today, and the physical Pi has woken to its name. Local speech and a local brain are still in development.</p>
+    <div class="opening-facts">
+      <div><b>Bench state</b>Mic to Pi 5 to Gemini to speaker - a complete voice turn, internet required.</div>
+      <div><b>Verified</b>The physical Pi has woken to its name. Bench-verified Sep 15.</div>
+      <div><b>Not claimed</b>Local speech, moving shell, camera. In development, shown as such.</div>
+    </div>
+  </section>
+
+  <section class="truth">
+    <div class="sec-head"><span class="sec-no">01</span><p class="kicker" style="margin:0">The honest architecture</p></div>
+    <h2>Now, then next.</h2>
+    <div class="truth-rows" style="margin-top:var(--s5)">
+      <div class="truth-row">
+        <span class="label"><span class="dot"></span>Working now</span>
+        <div><strong>Mic to Pi 5 to Gemini to speaker.</strong>
+        <p>A complete voice turn on the bench. It needs an internet connection. The physical Pi has also woken to its name.</p></div>
+      </div>
+      <div class="truth-row">
+        <span class="label dev"><span class="dot"></span>In development</span>
+        <div><strong>Local speech. Fine-tuned Qwen.</strong>
+        <p>The intended private path, plus the moving product shell. None of these are represented as finished.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="film">
+    <div class="sec-head"><span class="sec-no">02</span><p class="kicker" style="margin:0">Product film · 00:37</p></div>
+    <video src="assets/cat-wakes.mp4" controls muted playsinline preload="metadata" poster="assets/render-front.png"></video>
+    <div class="film-note">
+      <span>A picture of the intended product, not footage of finished hardware.</span>
+      <small>Concept visualization. Bench object shown; production finish is warm-white ceramic. The architecture statement above describes the real bench state.</small>
+    </div>
+  </section>
+
+  <section class="review">
+    <div class="sec-head"><span class="sec-no">03</span><p class="kicker" style="margin:0">Reviewer path</p></div>
+    <h2>Product to proof, without a dead end.</h2>
+    <nav class="steps" style="margin-top:var(--s5)">
+      <a href="https://jacobegarcia.github.io/luckycat/"><span class="n">01</span><b>Product</b><span class="go">Visit -&gt;</span></a>
+      <a href="https://youtu.be/EtL4Ix5GXxw"><span class="n">02</span><b>Founder video</b><span class="go">Watch -&gt;</span></a>
+      <a href="https://jacobegarcia.github.io/fly-mind/"><span class="n">03</span><b>Fly Mind</b><span class="go">Open -&gt;</span></a>
+      <a href="https://jacobegarcia.github.io/luckycat/#wishlist"><span class="n">04</span><b>Join the first run</b><span class="go">Wishlist -&gt;</span></a>
+    </nav>
+  </section>
+
+  <section class="ledger">
+    <div class="sec-head"><span class="sec-no">04</span><p class="kicker" style="margin:0">A public trail</p></div>
+    <h2>Follow every mark.</h2>
+    <div class="rows" style="margin-top:var(--s5)">
+      <a href="https://github.com/JacobEGarcia/luckycat"><span class="n">01</span><b>Product-site source</b><span class="note">Public code and revision history.</span></a>
+      <a href="https://github.com/JacobEGarcia/luckycat-proof"><span class="n">02</span><b>This ledger's source</b><span class="note">Audit changes to this page.</span></a>
+      <a href="https://www.kaggle.com/jacobegarcia"><span class="n">03</span><b>Local-model training profile</b><span class="note">Candidate model work, not the live brain.</span></a>
+      <a href="https://docs.google.com/presentation/d/1FmIhXr0IqTb0JTAQN8mMUtrLxD_FMTl0dsQkC3vm8VU/edit?usp=drivesdk&amp;authuser=jacobegarcia101%40gmail.com"><span class="n">04</span><b>Blueprint deck</b><span class="note">Product and build plan.</span></a>
+    </div>
+  </section>
+
+  <section class="evidence">
+    <div class="sec-head"><span class="sec-no">05</span><p class="kicker" style="margin:0">More than one object</p></div>
+    <h2>The maker behind it.</h2>
+    <div class="rows" style="margin-top:var(--s5)">
+      <a href="https://jacobegarcia.github.io/fly-mind/"><span class="n">01</span><b>Fly Mind</b><span class="note">Interactive technical work sample.</span></a>
+      <a href="https://jacobegarcia.github.io/lucky-cat-tamagotchi/"><span class="n">02</span><b>Tamagotchi</b><span class="note">Character and interaction study.</span></a>
+      <a href="https://jacobegarcia.github.io/lucky-runner/"><span class="n">03</span><b>Lucky Runner</b><span class="note">Brand-world game.</span></a>
+      <a href="https://www.instagram.com/luckycatrobot/"><span class="n">04</span><b>Instagram</b><span class="note">Posters and visual build log.</span></a>
+      <a href="https://luckycatrobot.substack.com"><span class="n">05</span><b>Substack</b><span class="note">Long-form build notes.</span></a>
+      <a href="https://x.com/luckycatrobot"><span class="n">06</span><b>X</b><span class="note">Public progress.</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer><div class="wrap">
+  <span>Lucky Cat · Chicago · September 2026</span>
+  <span><a href="https://jacobegarcia.github.io/luckycat/">Product site</a> · <a href="mailto:jacobegarcia101@gmail.com">Contact</a></span>
+</div></footer>
+
+</body>
+</html>
